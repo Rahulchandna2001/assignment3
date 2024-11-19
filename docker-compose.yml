@@ -1,0 +1,17 @@
+
+services:
+  web_service:
+    build: ./web
+    image: rahulchandna2001/web_service:latest  # Define the Docker Hub image
+    container_name: web_service
+    ports:
+      - "8082:80"
+    restart: unless-stopped
+
+  load_balancer:
+    build: ./loadbalancer
+    image: rahulchandna2001/load_balancer:latest  # Define the Docker Hub image
+    container_name: load_balancer
+    ports:
+      - "9090:80"
+    restart: unless-stopped
